@@ -1,0 +1,21 @@
+% Ecuaciones del lazo de control en formato compacto.
+% Compilar:
+%   pdflatex ecuaciones.tex                         -> ecuaciones.pdf
+%   latex ecuaciones.tex
+%   dvisvgm --no-fonts --exact-bbox ecuaciones.dvi  -> ecuaciones.svg
+\documentclass[border=3pt]{standalone}
+\usepackage{amsmath}
+
+% bloques repetidos
+\newcommand{\Kc}{\dfrac{1}{10R_3}}
+\newcommand{\Hc}{\dfrac{sC_fR_f+1}{s(sC_fR_fC_1+(C_1+C_f))}}
+\newcommand{\Hp}{\dfrac{1}{R_L+sL}}
+
+\begin{document}
+$\displaystyle
+\begin{alignedat}{2}
+C(s)   &= -\Kc\cdot\Hc                                         &\qquad& (1) \\[8pt]
+T_0(s) &= \dfrac{-\Kc\cdot\Hc\cdot\Hp}{1+\Kc\cdot\Hc\cdot\Hp}  &\qquad& (2) \\[8pt]
+T_0(s) &= \dfrac{-1}{1+10R_3R_L\cdot s(sC_fR_fC_1+(C_1+C_f))}  &\qquad& (3)
+\end{alignedat}$
+\end{document}

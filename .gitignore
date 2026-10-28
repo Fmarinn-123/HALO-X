@@ -1,0 +1,10 @@
+# Only the files published in HALO-X are tracked; everything else in 6AMP++
+# (PCB, LTspice, GradientesMarin, ...) stays local. Add a file with a "!" line.
+/*
+!/.gitignore
+!/polinomio.py
+!/Diagramas_Gradientes/
+/Diagramas_Gradientes/*
+!/Diagramas_Gradientes/ecuaciones.tex
+!/Diagramas_Gradientes/ecuaciones.pdf
+!/Diagramas_Gradientes/ecuaciones.svg
