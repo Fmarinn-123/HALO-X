@@ -1,4 +1,6 @@
-% Ecuaciones del lazo de control en formato compacto.
+% Ecuaciones del lazo de control en formato compacto (mismo modelo que
+% polinomio.py): ganancia G = R3/(R4*R5) y resistencia en serie con la bobina
+% R_tot = R_L + R4 + Re_eq (ramas de emisor en paralelo).
 % Compilar:
 %   pdflatex ecuaciones.tex                         -> ecuaciones.pdf
 %   latex ecuaciones.tex
@@ -7,15 +9,22 @@
 \usepackage{amsmath}
 
 % bloques repetidos
-\newcommand{\Kc}{\dfrac{1}{10R_3}}
+\newcommand{\Rt}{R_{\mathrm{tot}}}
+\newcommand{\Kc}{\dfrac{R_4}{R_3}}
 \newcommand{\Hc}{\dfrac{sC_fR_f+1}{s(sC_fR_fC_1+(C_1+C_f))}}
-\newcommand{\Hp}{\dfrac{1}{R_L+sL}}
+\newcommand{\Hp}{\dfrac{1}{\Rt+sL}}
 
 \begin{document}
 $\displaystyle
 \begin{alignedat}{2}
-C(s)   &= -\Kc\cdot\Hc                                         &\qquad& (1) \\[8pt]
-T_0(s) &= \dfrac{-\Kc\cdot\Hc\cdot\Hp}{1+\Kc\cdot\Hc\cdot\Hp}  &\qquad& (2) \\[8pt]
-T_0(s) &= \dfrac{-1}{1+10R_3R_L\cdot s(sC_fR_fC_1+(C_1+C_f))}  &\qquad& (3)
+C(s)   &= -\Kc\cdot\Hc                                            &\qquad& (1) \\[8pt]
+T_0(s) &= \dfrac{-\dfrac{1}{R_5}\cdot\Hc\cdot\Hp}
+                {1+\Kc\cdot\Hc\cdot\Hp}                           &\qquad& (2) \\[8pt]
+T_0(s) &= \dfrac{-G}
+                {1+\dfrac{R_3\Rt}{R_4}\cdot s(sC_fR_fC_1+(C_1+C_f))} &\qquad& (3) \\[12pt]
+       &\text{where}\quad G=\dfrac{R_3}{R_4R_5},\qquad
+        C_fR_f=\dfrac{L}{\Rt},                                    && \\[8pt]
+       &\hphantom{\text{where}\quad}\Rt=R_L+R_4+R_{e,\mathrm{eq}},\qquad
+        R_{e,\mathrm{eq}}=\Bigl(\sum_{i=1}^{N}\dfrac{1}{R_{e,i}}\Bigr)^{-1} &&
 \end{alignedat}$
 \end{document}
