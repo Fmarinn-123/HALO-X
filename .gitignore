@@ -2,6 +2,7 @@
 # (PCB, LTspice, GradientesMarin, ...) stays local. Add a file with a "!" line.
 /*
 !/.gitignore
+!/README.md
 !/polinomio.py
 !/Diagramas_Gradientes/
 /Diagramas_Gradientes/*
